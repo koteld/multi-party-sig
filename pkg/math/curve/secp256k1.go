@@ -226,8 +226,8 @@ func (p *Secp256k1Point) MarshalBinaryEth() ([]byte, error) {
 	dataX := v.X.Bytes()
 	dataY := v.Y.Bytes()
 
-	copy(out[:31], dataX[:])
-	copy(out[32:], dataY[:])
+	copy(out[32-len(dataX):], dataX[:])
+	copy(out[64-len(dataY):], dataY[:])
 
 	return out, nil
 }
