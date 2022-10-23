@@ -193,6 +193,31 @@ func (p *Secp256k1Point) XBytes() []byte {
 }
 
 func (p *Secp256k1Point) MarshalBinary() ([]byte, error) {
+	out := make([]byte, 33)
+	// This will modify p, but still return an equivalent value
+	p.value.ToAffine()
+	// Doing it this way is compatible with Bitcoin
+	out[0] = byte(p.value.Y.IsOddBit()) + 2
+	data := p.value.X.Bytes()
+	copy(out[1:], data[:])
+	return out, nil
+}
+
+func (p *Secp256k1Point) UnmarshalBinary(data []byte) error {
+	if len(data) != 33 {
+		return fmt.Errorf("invalid length for secp256k1Point: %d", len(data))
+	}
+	p.value.Z.SetInt(1)
+	if p.value.X.SetByteSlice(data[1:]) {
+		return fmt.Errorf("secp256k1Point.UnmarshalBinary: x coordinate out of range")
+	}
+	if !secp256k1.DecompressY(&p.value.X, data[0] == 3, &p.value.Y) {
+		return fmt.Errorf("secp256k1Point.UnmarshalBinary: x coordinate not on curve")
+	}
+	return nil
+}
+
+func (p *Secp256k1Point) MarshalBinaryEth() ([]byte, error) {
 	out := make([]byte, 64)
 	// we clone v to not case a race during a hash.Write
 	v := p.value
@@ -207,7 +232,7 @@ func (p *Secp256k1Point) MarshalBinary() ([]byte, error) {
 	return out, nil
 }
 
-func (p *Secp256k1Point) UnmarshalBinary(data []byte) error {
+func (p *Secp256k1Point) UnmarshalBinaryEth(data []byte) error {
 	if len(data) != 64 {
 		return fmt.Errorf("invalid length for secp256k1Point: %d", len(data))
 	}

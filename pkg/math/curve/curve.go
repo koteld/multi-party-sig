@@ -108,6 +108,11 @@ type Point interface {
 	// but this isn't strictly necessary.
 	encoding.BinaryMarshaler
 	encoding.BinaryUnmarshaler
+
+	// Marshalling for Ethereum purposes
+	MarshalBinaryEth() ([]byte, error)
+	UnmarshalBinaryEth([]byte) error
+
 	// Curve returns the Elliptic Curve group associated with this type of Point.
 	Curve() Curve
 	// Add returns a new Point, by adding another Point to this one.
