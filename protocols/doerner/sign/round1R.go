@@ -3,12 +3,12 @@ package sign
 import (
 	"crypto/rand"
 
-	"github.com/taurusgroup/multi-party-sig/internal/ot"
-	"github.com/taurusgroup/multi-party-sig/internal/round"
-	"github.com/taurusgroup/multi-party-sig/pkg/hash"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/sample"
-	"github.com/taurusgroup/multi-party-sig/protocols/doerner/keygen"
+	"github.com/koteld/multi-party-sig/internal/ot"
+	"github.com/koteld/multi-party-sig/internal/round"
+	"github.com/koteld/multi-party-sig/pkg/hash"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/pkg/math/sample"
+	"github.com/koteld/multi-party-sig/protocols/doerner/keygen"
 )
 
 // message1R is the first message sent by the Receiver.

@@ -6,11 +6,11 @@ import (
 	"math"
 	"sync"
 
-	"github.com/taurusgroup/multi-party-sig/internal/types"
-	"github.com/taurusgroup/multi-party-sig/pkg/hash"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
-	"github.com/taurusgroup/multi-party-sig/pkg/party"
-	"github.com/taurusgroup/multi-party-sig/pkg/pool"
+	"github.com/koteld/multi-party-sig/internal/types"
+	"github.com/koteld/multi-party-sig/pkg/hash"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/pkg/party"
+	"github.com/koteld/multi-party-sig/pkg/pool"
 )
 
 // Helper implements Session without Round, and can therefore be embedded in the first round of a protocol

@@ -3,13 +3,13 @@ package keygen
 import (
 	"fmt"
 
-	"github.com/taurusgroup/multi-party-sig/internal/round"
-	"github.com/taurusgroup/multi-party-sig/internal/types"
-	"github.com/taurusgroup/multi-party-sig/pkg/hash"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/polynomial"
-	"github.com/taurusgroup/multi-party-sig/pkg/party"
-	sch "github.com/taurusgroup/multi-party-sig/pkg/zk/sch"
+	"github.com/koteld/multi-party-sig/internal/round"
+	"github.com/koteld/multi-party-sig/internal/types"
+	"github.com/koteld/multi-party-sig/pkg/hash"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/pkg/math/polynomial"
+	"github.com/koteld/multi-party-sig/pkg/party"
+	sch "github.com/koteld/multi-party-sig/pkg/zk/sch"
 )
 
 // This round corresponds with steps 5 of Round 1, 1 of Round 2, Figure 1 in the Frost paper:

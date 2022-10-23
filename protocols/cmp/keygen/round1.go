@@ -5,15 +5,15 @@ import (
 	"errors"
 
 	"github.com/cronokirby/safenum"
-	"github.com/taurusgroup/multi-party-sig/internal/round"
-	"github.com/taurusgroup/multi-party-sig/internal/types"
-	"github.com/taurusgroup/multi-party-sig/pkg/hash"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/polynomial"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/sample"
-	"github.com/taurusgroup/multi-party-sig/pkg/paillier"
-	"github.com/taurusgroup/multi-party-sig/pkg/party"
-	zksch "github.com/taurusgroup/multi-party-sig/pkg/zk/sch"
+	"github.com/koteld/multi-party-sig/internal/round"
+	"github.com/koteld/multi-party-sig/internal/types"
+	"github.com/koteld/multi-party-sig/pkg/hash"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/pkg/math/polynomial"
+	"github.com/koteld/multi-party-sig/pkg/math/sample"
+	"github.com/koteld/multi-party-sig/pkg/paillier"
+	"github.com/koteld/multi-party-sig/pkg/party"
+	zksch "github.com/koteld/multi-party-sig/pkg/zk/sch"
 )
 
 var _ round.Round = (*round1)(nil)

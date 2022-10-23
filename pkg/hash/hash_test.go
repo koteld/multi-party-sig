@@ -6,9 +6,9 @@ import (
 	"testing"
 
 	"github.com/cronokirby/safenum"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/pkg/math/sample"
 	"github.com/stretchr/testify/assert"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/sample"
 )
 
 func TestHash_WriteAny(t *testing.T) {

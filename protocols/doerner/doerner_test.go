@@ -6,14 +6,14 @@ import (
 	"sync"
 	"testing"
 
+	"github.com/koteld/multi-party-sig/internal/test"
+	"github.com/koteld/multi-party-sig/pkg/ecdsa"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/pkg/party"
+	"github.com/koteld/multi-party-sig/pkg/pool"
+	"github.com/koteld/multi-party-sig/pkg/protocol"
+	"github.com/koteld/multi-party-sig/protocols/doerner/keygen"
 	"github.com/stretchr/testify/require"
-	"github.com/taurusgroup/multi-party-sig/internal/test"
-	"github.com/taurusgroup/multi-party-sig/pkg/ecdsa"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
-	"github.com/taurusgroup/multi-party-sig/pkg/party"
-	"github.com/taurusgroup/multi-party-sig/pkg/pool"
-	"github.com/taurusgroup/multi-party-sig/pkg/protocol"
-	"github.com/taurusgroup/multi-party-sig/protocols/doerner/keygen"
 )
 
 func runHandler(wg *sync.WaitGroup, id party.ID, handler protocol.Handler, network *test.Network) {

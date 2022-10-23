@@ -4,10 +4,10 @@ import (
 	"crypto/rand"
 	"testing"
 
-	"github.com/taurusgroup/multi-party-sig/pkg/hash"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/sample"
-	"github.com/taurusgroup/multi-party-sig/pkg/pool"
+	"github.com/koteld/multi-party-sig/pkg/hash"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/pkg/math/sample"
+	"github.com/koteld/multi-party-sig/pkg/pool"
 )
 
 func runMultiply(hash *hash.Hash, sendSetup *CorreOTSendSetup, receiveSetup *CorreOTReceiveSetup, alpha, beta curve.Scalar) (curve.Scalar, curve.Scalar, error) {

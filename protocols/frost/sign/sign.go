@@ -3,10 +3,10 @@ package sign
 import (
 	"fmt"
 
-	"github.com/taurusgroup/multi-party-sig/internal/round"
-	"github.com/taurusgroup/multi-party-sig/pkg/party"
-	"github.com/taurusgroup/multi-party-sig/pkg/protocol"
-	"github.com/taurusgroup/multi-party-sig/protocols/frost/keygen"
+	"github.com/koteld/multi-party-sig/internal/round"
+	"github.com/koteld/multi-party-sig/pkg/party"
+	"github.com/koteld/multi-party-sig/pkg/protocol"
+	"github.com/koteld/multi-party-sig/protocols/frost/keygen"
 )
 
 const (

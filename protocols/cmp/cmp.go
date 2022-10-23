@@ -1,16 +1,16 @@
 package cmp
 
 import (
-	"github.com/taurusgroup/multi-party-sig/internal/round"
-	"github.com/taurusgroup/multi-party-sig/pkg/ecdsa"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
-	"github.com/taurusgroup/multi-party-sig/pkg/party"
-	"github.com/taurusgroup/multi-party-sig/pkg/pool"
-	"github.com/taurusgroup/multi-party-sig/pkg/protocol"
-	"github.com/taurusgroup/multi-party-sig/protocols/cmp/config"
-	"github.com/taurusgroup/multi-party-sig/protocols/cmp/keygen"
-	"github.com/taurusgroup/multi-party-sig/protocols/cmp/presign"
-	"github.com/taurusgroup/multi-party-sig/protocols/cmp/sign"
+	"github.com/koteld/multi-party-sig/internal/round"
+	"github.com/koteld/multi-party-sig/pkg/ecdsa"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/pkg/party"
+	"github.com/koteld/multi-party-sig/pkg/pool"
+	"github.com/koteld/multi-party-sig/pkg/protocol"
+	"github.com/koteld/multi-party-sig/protocols/cmp/config"
+	"github.com/koteld/multi-party-sig/protocols/cmp/keygen"
+	"github.com/koteld/multi-party-sig/protocols/cmp/presign"
+	"github.com/koteld/multi-party-sig/protocols/cmp/sign"
 )
 
 // Config represents the stored state of a party who participated in a successful `Keygen` protocol.

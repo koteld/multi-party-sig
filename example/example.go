@@ -5,16 +5,16 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/taurusgroup/multi-party-sig/internal/test"
-	"github.com/taurusgroup/multi-party-sig/pkg/ecdsa"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
-	"github.com/taurusgroup/multi-party-sig/pkg/party"
-	"github.com/taurusgroup/multi-party-sig/pkg/pool"
-	"github.com/taurusgroup/multi-party-sig/pkg/protocol"
-	"github.com/taurusgroup/multi-party-sig/pkg/taproot"
-	"github.com/taurusgroup/multi-party-sig/protocols/cmp"
-	"github.com/taurusgroup/multi-party-sig/protocols/example"
-	"github.com/taurusgroup/multi-party-sig/protocols/frost"
+	"github.com/koteld/multi-party-sig/internal/test"
+	"github.com/koteld/multi-party-sig/pkg/ecdsa"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/pkg/party"
+	"github.com/koteld/multi-party-sig/pkg/pool"
+	"github.com/koteld/multi-party-sig/pkg/protocol"
+	"github.com/koteld/multi-party-sig/pkg/taproot"
+	"github.com/koteld/multi-party-sig/protocols/cmp"
+	"github.com/koteld/multi-party-sig/protocols/example"
+	"github.com/koteld/multi-party-sig/protocols/frost"
 )
 
 func XOR(id party.ID, ids party.IDSlice, n *test.Network) error {
@@ -252,8 +252,8 @@ func All(id party.ID, ids party.IDSlice, threshold int, message []byte, n *test.
 
 func main() {
 
-	ids := party.IDSlice{"a", "b", "c", "d", "e", "f"}
-	threshold := 4
+	ids := party.IDSlice{"a", "b", "c"}
+	threshold := 2
 	messageToSign := []byte("hello")
 
 	net := test.NewNetwork(ids)

@@ -6,10 +6,10 @@ import (
 	"crypto/rand"
 
 	"github.com/cronokirby/safenum"
-	"github.com/taurusgroup/multi-party-sig/pkg/hash"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/arith"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/sample"
-	"github.com/taurusgroup/multi-party-sig/pkg/paillier"
+	"github.com/koteld/multi-party-sig/pkg/hash"
+	"github.com/koteld/multi-party-sig/pkg/math/arith"
+	"github.com/koteld/multi-party-sig/pkg/math/sample"
+	"github.com/koteld/multi-party-sig/pkg/paillier"
 )
 
 type Public struct {

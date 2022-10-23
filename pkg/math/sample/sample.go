@@ -6,8 +6,8 @@ import (
 	"math/big"
 
 	"github.com/cronokirby/safenum"
-	"github.com/taurusgroup/multi-party-sig/internal/params"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/internal/params"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
 )
 
 const maxIterations = 255

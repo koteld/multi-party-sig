@@ -3,9 +3,9 @@ package xor
 import (
 	"crypto/rand"
 
-	"github.com/taurusgroup/multi-party-sig/internal/round"
-	"github.com/taurusgroup/multi-party-sig/internal/types"
-	"github.com/taurusgroup/multi-party-sig/pkg/party"
+	"github.com/koteld/multi-party-sig/internal/round"
+	"github.com/koteld/multi-party-sig/internal/types"
+	"github.com/koteld/multi-party-sig/pkg/party"
 )
 
 // Round1 can embed round.Helper which provides useful methods handling messages.

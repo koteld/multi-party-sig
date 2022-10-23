@@ -3,16 +3,16 @@ package keygen
 import (
 	"errors"
 
-	"github.com/taurusgroup/multi-party-sig/internal/round"
-	"github.com/taurusgroup/multi-party-sig/internal/types"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/polynomial"
-	"github.com/taurusgroup/multi-party-sig/pkg/paillier"
-	"github.com/taurusgroup/multi-party-sig/pkg/party"
-	"github.com/taurusgroup/multi-party-sig/pkg/pedersen"
-	zkmod "github.com/taurusgroup/multi-party-sig/pkg/zk/mod"
-	zkprm "github.com/taurusgroup/multi-party-sig/pkg/zk/prm"
-	"github.com/taurusgroup/multi-party-sig/protocols/cmp/config"
+	"github.com/koteld/multi-party-sig/internal/round"
+	"github.com/koteld/multi-party-sig/internal/types"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/pkg/math/polynomial"
+	"github.com/koteld/multi-party-sig/pkg/paillier"
+	"github.com/koteld/multi-party-sig/pkg/party"
+	"github.com/koteld/multi-party-sig/pkg/pedersen"
+	zkmod "github.com/koteld/multi-party-sig/pkg/zk/mod"
+	zkprm "github.com/koteld/multi-party-sig/pkg/zk/prm"
+	"github.com/koteld/multi-party-sig/protocols/cmp/config"
 )
 
 var _ round.Round = (*round4)(nil)

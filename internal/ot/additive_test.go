@@ -4,11 +4,11 @@ import (
 	"crypto/rand"
 	"testing"
 
-	"github.com/taurusgroup/multi-party-sig/internal/params"
-	"github.com/taurusgroup/multi-party-sig/pkg/hash"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/curve"
-	"github.com/taurusgroup/multi-party-sig/pkg/math/sample"
-	"github.com/taurusgroup/multi-party-sig/pkg/pool"
+	"github.com/koteld/multi-party-sig/internal/params"
+	"github.com/koteld/multi-party-sig/pkg/hash"
+	"github.com/koteld/multi-party-sig/pkg/math/curve"
+	"github.com/koteld/multi-party-sig/pkg/math/sample"
+	"github.com/koteld/multi-party-sig/pkg/pool"
 )
 
 func runAdditiveOT(hash *hash.Hash, choices []byte, alpha [2]curve.Scalar, sendSetup *CorreOTSendSetup, receiveSetup *CorreOTReceiveSetup) (AdditiveOTSendResult, AdditiveOTReceiveResult, error) {
