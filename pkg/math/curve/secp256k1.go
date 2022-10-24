@@ -217,30 +217,37 @@ func (p *Secp256k1Point) UnmarshalBinary(data []byte) error {
 	return nil
 }
 
+// MarshalBinaryEth converts a Secp256k1Point on the curve into the uncompressed form specified in
+// SEC 1, Version 2.0, Section 2.3.3. If the Secp256k1Point is not on the curve (or is
+// the conventional point at infinity), the behavior is undefined.
 func (p *Secp256k1Point) MarshalBinaryEth() ([]byte, error) {
-	out := make([]byte, 64)
+	byteLen := (p.Curve().ScalarBits() + 7) / 8
+	ret := make([]byte, 1+2*byteLen)
+	ret[0] = 4 // uncompressed point
+
 	// we clone v to not case a race during a hash.Write
 	v := p.value
 	v.ToAffine()
 
-	dataX := v.X.Bytes()
-	dataY := v.Y.Bytes()
+	bytesX := v.X.Bytes()
+	bytesY := v.Y.Bytes()
 
-	copy(out[32-len(dataX):], dataX[:])
-	copy(out[64-len(dataY):], dataY[:])
+	copy(ret[1:1+byteLen], bytesX[:])
+	copy(ret[1+byteLen:1+2*byteLen], bytesY[:])
 
-	return out, nil
+	return ret, nil
 }
 
 func (p *Secp256k1Point) UnmarshalBinaryEth(data []byte) error {
-	if len(data) != 64 {
+	byteLen := (p.Curve().ScalarBits() + 7) / 8
+	if len(data) != 2*byteLen+1 {
 		return fmt.Errorf("invalid length for secp256k1Point: %d", len(data))
 	}
 	p.value.Z.SetInt(1)
-	if p.value.X.SetByteSlice(data[:31]) {
+	if p.value.X.SetByteSlice(data[1 : 1+byteLen]) {
 		return fmt.Errorf("secp256k1Point.UnmarshalBinary: x coordinate out of range")
 	}
-	if p.value.Y.SetByteSlice(data[32:]) {
+	if p.value.Y.SetByteSlice(data[1+byteLen : 1+2*byteLen]) {
 		return fmt.Errorf("secp256k1Point.UnmarshalBinary: y coordinate out of range")
 	}
 	return nil
