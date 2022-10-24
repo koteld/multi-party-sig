@@ -91,6 +91,10 @@ type Scalar interface {
 	//
 	// This can be accomplished with Act, but can be made more efficient, in many cases.
 	ActOnBase() Point
+
+	Bytes() [32]byte
+
+	IsOverHalfOrder() bool
 }
 
 // Point represents an element of our Elliptic Curve group.
@@ -141,6 +145,10 @@ type Point interface {
 	//
 	// If you choose not to implement this method, simply return nil.
 	XScalar() Scalar
+
+	XBytes() []byte
+
+	IsOddYBit() uint32
 }
 
 // MakeInt converts a scalar into an Int.

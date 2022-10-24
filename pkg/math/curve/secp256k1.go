@@ -171,6 +171,14 @@ func (s *Secp256k1Scalar) ActOnBase() Point {
 	return out
 }
 
+func (p *Secp256k1Scalar) Bytes() [32]byte {
+	return p.value.Bytes()
+}
+
+func (p *Secp256k1Scalar) IsOverHalfOrder() bool {
+	return p.value.IsOverHalfOrder()
+}
+
 type Secp256k1Point struct {
 	value secp256k1.JacobianPoint
 }
@@ -295,6 +303,11 @@ func (p *Secp256k1Point) IsIdentity() bool {
 func (p *Secp256k1Point) HasEvenY() bool {
 	p.value.ToAffine()
 	return !p.value.Y.IsOdd()
+}
+
+func (p *Secp256k1Point) IsOddYBit() uint32 {
+	p.value.ToAffine()
+	return p.value.Y.IsOddBit()
 }
 
 func (p *Secp256k1Point) XScalar() Scalar {

@@ -4,6 +4,10 @@ import (
 	"github.com/koteld/multi-party-sig/pkg/math/curve"
 )
 
+const (
+	compactSigSize = 65
+)
+
 type Signature struct {
 	R curve.Point
 	S curve.Scalar
@@ -26,4 +30,25 @@ func (sig Signature) Verify(X curve.Point, hash []byte) bool {
 	R2 := mG.Add(rX)
 	R2 = sInv.Act(R2)
 	return R2.Equal(sig.R)
+}
+
+// ToCompactEth serializes signature to the compact format [R || S || V] format where V is 0 or 1.
+func (sig Signature) ToCompactEth() []byte {
+	b := make([]byte, 1, compactSigSize)
+
+	bytesR := sig.R.XBytes()
+	bytesS := sig.S.Bytes()
+
+	copy(b[0:32], bytesR[:])
+	copy(b[32:64], bytesS[:])
+
+	recoveryID := byte(sig.R.IsOddYBit())
+
+	if sig.S.IsOverHalfOrder() {
+		recoveryID ^= 0x01
+	}
+
+	b[64] = recoveryID
+
+	return b
 }
