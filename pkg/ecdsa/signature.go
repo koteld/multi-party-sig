@@ -34,7 +34,7 @@ func (sig Signature) Verify(X curve.Point, hash []byte) bool {
 
 // ToCompactEth serializes signature to the compact format [R || S || V] format where V is 0 or 1.
 func (sig Signature) ToCompactEth() []byte {
-	b := make([]byte, 1, compactSigSize)
+	b := make([]byte, compactSigSize)
 
 	bytesR := sig.R.XBytes()
 	bytesS := sig.S.Bytes()
