@@ -36,17 +36,20 @@ func (sig Signature) Verify(X curve.Point, hash []byte) bool {
 func (sig Signature) ToCompactEth() []byte {
 	b := make([]byte, compactSigSize)
 
-	bytesR := sig.R.XBytes()
-	bytesS := sig.S.Bytes()
+	R := sig.R
+	S := sig.S
+	recoveryID := byte(R.IsOddYBit())
+
+	if R.XScalar().IsOverHalfOrder() {
+		recoveryID ^= 0x01
+		S.Negate()
+	}
+
+	bytesR := R.XBytes()
+	bytesS := S.Bytes()
 
 	copy(b[0:32], bytesR[:])
 	copy(b[32:64], bytesS[:])
-
-	recoveryID := byte(sig.R.IsOddYBit())
-
-	if sig.S.IsOverHalfOrder() {
-		recoveryID ^= 0x01
-	}
 
 	b[64] = recoveryID
 
